@@ -26,6 +26,16 @@
 # If the user is playing with their pet too much then fatigue goes up
 # If the user made hunger go down, fatigue/need to play go down and bathroom false then happiness goes up by 15
 
+# The parentheses take in argunments, arguments are bascially variables that are going to be used in the function, there can be as many of these as you need
+# def update_status(pls, fix, this):
+#  return(pls fix this)
+# return value is what comes out of the function
+# after the function has been defined(aka everything above), you can give the arguments value for the function to use
+# update_status(pls, fix, this)
+
+# response = input('Would you like to play with your pet?)
+# \n, 'Would you like to take ', name, ' to use the grass?')
+
 
 # Virtual Dog Simulator
 import time
@@ -35,24 +45,32 @@ print('Welcome to Virtual Dog Simulator!')
 
 # This takes the input for the name of the dog
 petname = input('\nEnter a Name for Your Dog: ')
-print('Some rules for this game:', \n, 'Your dog will experience several different feelings including, happiness, fatigue, hunger, need to play and need to use the grass. It is your job to keep your dog happy, you can do this by lowering it's fatigue, keeping it fed, making sure it's going to the grass when need be and playing with it. Please inout either a y or n for each descion.')# This takes the input for the name of the dog
+print('Some rules for this game:', \n, 'Your dog will experience several different feelings including, happiness, fatigue, hunger, need to play and need to use the grass. It is your job to keep your dog happy, you can do this by lowering its fatigue, keeping it fed, making sure its going to the grass when need be and playing with it. Please input either True or False for each descion.')
+# This takes the input for the name of the dog
 
 # happiness is 1-100, hunger is a boolean, fatigue is 1-50, does it need to play is 1-10, does it need to use the bathroom is boolean, anger is 1-10
-my_dic = {hapiness : 50,
+my_dict = {hapiness : 50,
           hunger : False,
           fatigue : 5,
           play : 5,
           bathroom : False,
-          anger : 2}
+          anger : 2
+          dog_alive : True
+          current_happy : happiness
+          current_fatigue : fatigue
+          current_play : play
+          current_bathroom : bathroom
+          current_anger : anger}
 
-# def update_status(pls fix this)
-#      happiness = (happiness - 10)
-#      if hunger = False:
-          # hunger = True
-#      else:
-        # hunger = False
-# return(status)
+while dog_alive is True:
+          print('Happiness Level is: ', happiness, 'Fatigue Level is: ', fatigue, 'Need to Play Level is: ', play, 'Need for the Bathroom is: ', bathroom, 'Anger Level is: ', anger)
+          resp_play = input('Do you want to play with your dog?: ')
+          if resp_play is True:
+                    play = play - 10
 
-# response = input('Would you like to play with your pet?)
-# \n, 'Would you like to take ', name, ' to use the grass?')
-
+def is_dog_alive(my_dict):
+          if current_happy < 10 and current_fatigue > 40 and current_anger > 8:
+                    dog_alive = False
+          else:
+                    dog_alive = True
+return(dog_alive)
